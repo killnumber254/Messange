@@ -1,11 +1,13 @@
-function Message({ handleChange, handleClick }) {
+function Message({ handleChange, handleClick, value }) {
   return (
-    <>
-      <div className="chat_text">
-        <input type="text" onChange={handleChange} />
-        <button onClick={handleClick}>Отправить</button>
-      </div>
-    </>
+    <div>
+      <form className="chat_text">
+        <input type="text" onChange={handleChange} value={value} />
+        <button type="submit" onClick={handleClick}>
+          Отправить
+        </button>
+      </form>
+    </div>
   );
 }
 

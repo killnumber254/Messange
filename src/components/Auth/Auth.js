@@ -19,6 +19,7 @@ class Auth extends Component {
   }
 
   handleChangePassword(e) {
+    console.log(e.keyCode);
     e.preventDefault();
     this.setState({ password: e.target.value });
   }
@@ -41,21 +42,29 @@ class Auth extends Component {
         }
       });
   }
-
   render() {
     return (
       <>
-        <input
-          value={console.log(this.state.username)}
-          onChange={this.handleChangeUser}
-          type="text"
-        />
-        <input
-          value={console.log(this.state.password)}
-          onChange={this.handleChangePassword}
-          type="password"
-        />
-        <button onClick={this.handleClick}>Войти</button>
+        <form>
+          <input
+            value={this.state.username}
+            onChange={this.handleChangeUser}
+            type="text"
+          />
+          <input
+            value={this.state.password}
+            onChange={this.handleChangePassword}
+            type="password"
+          />
+          <button
+            type="submit"
+            ref={this.logButton}
+            onKeyDown={this.keyBoard}
+            onClick={this.handleClick}
+          >
+            Войти
+          </button>
+        </form>
       </>
     );
   }

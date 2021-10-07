@@ -44,7 +44,7 @@ class Regist extends Component {
 
   render() {
     return (
-      <div>
+      <form>
         <input
           value={console.log(this.state.username)}
           onChange={this.handleChangeUser}
@@ -55,8 +55,10 @@ class Regist extends Component {
           onChange={this.handleChangePassword}
           type="password"
         />
-        <button onClick={this.handleClick}>Зарегестрировать</button>
-      </div>
+        <button type="submit" onClick={this.handleClick}>
+          Зарегестрировать
+        </button>
+      </form>
     );
   }
 }

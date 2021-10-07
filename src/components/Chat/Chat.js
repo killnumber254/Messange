@@ -11,6 +11,7 @@ class Chat extends Component {
       data: [],
       message: "",
       chat: "",
+      datas: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -22,29 +23,42 @@ class Chat extends Component {
   }
 
   handleClick(e) {
-    const { setUser } = this.props;
-
     e.preventDefault();
+    this.setState({ message: "" });
+    this.postDataBase();
+    this.dataBase();
+  }
+
+  async postDataBase() {
+    const { setUser } = this.props;
     const messanger = {
       usernames: setUser,
       messager: this.state.message,
     };
-    axios
+    await axios
       .post("http://127.0.0.1:5000/chat", messanger)
-      .then((res) => res)
-      .then((body) =>
-        this.setState({
-          data: body.data,
-          chat: body.data.messange,
-        })
-      );
+      .then((res) => console.log(res));
+  }
+
+  dataBase() {
+    axios.get("http://127.0.0.1:5000/chat:message").then((res) => {
+      console.log(res);
+      this.setState({ datas: res.data });
+    });
+  }
+
+  componentDidMount() {
+    axios.get("http://127.0.0.1:5000/chat:mess").then((res) => {
+      this.setState({ datas: res.data });
+    });
   }
   render() {
     return (
       <>
-        <List chat={this.state.chat} list={this.state.data} />
-        <span>{console.log(this.state.data)}</span>
+        <List data={this.state.datas} />
+        {/* <span>{console.log(this.state.data)}</span> */}
         <Message
+          value={this.state.message}
           handleChange={this.handleChange}
           handleClick={this.handleClick}
         />
