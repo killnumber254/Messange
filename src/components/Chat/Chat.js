@@ -26,7 +26,9 @@ class Chat extends Component {
     e.preventDefault();
     this.setState({ message: "" });
     this.postDataBase();
-    this.dataBase();
+    setTimeout(() => {
+      this.dataBase();
+    }, 200);
   }
 
   async postDataBase() {
