@@ -5,7 +5,8 @@ import Navigation from "../Navigation";
 import Regist from "../Regist";
 import { BrowserRouter, Route } from "react-router-dom";
 import Chat from "../Chat/Chat";
-//import "bootstrap/dist/css/bootstrap.min.css";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   constructor(props) {

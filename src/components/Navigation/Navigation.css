@@ -1,0 +1,13 @@
+.nav {
+  margin-left: 10vh;
+  list-style: none;
+}
+
+.navEN {
+  text-decoration: none;
+}
+
+.navRegist {
+  padding-left: 15vh;
+  text-decoration: none;
+}

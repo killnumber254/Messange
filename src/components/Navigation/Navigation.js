@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
+import "./Navigation.css";
 const Navigation = () => {
   return (
-    <div>
-      <NavLink exact to="/en">
+    <div className="nav">
+      <NavLink exact to="/en" className="navEN">
         Вход
       </NavLink>
-      <NavLink exact to="/regist">
+      <NavLink exact to="/regist" className="navRegist">
         Регистрация
       </NavLink>
     </div>
