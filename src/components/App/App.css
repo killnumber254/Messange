@@ -3,3 +3,11 @@
   margin-left: 70vh;
   width: 50vh;
 }
+
+@media only screen and (max-width: 480px) {
+  .auth_regist {
+    margin-top: 20vh;
+    margin-left: 5vh;
+    width: 50vh;
+  }
+}
