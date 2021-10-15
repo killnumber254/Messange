@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Messange/static/css/main.9c327c38.chunk.css",
+    "main.js": "/Messange/static/js/main.781519ed.chunk.js",
+    "runtime-main.js": "/Messange/static/js/runtime-main.19ff9975.js",
+    "static/js/2.6acdd685.chunk.js": "/Messange/static/js/2.6acdd685.chunk.js",
+    "static/js/3.9fee63bd.chunk.js": "/Messange/static/js/3.9fee63bd.chunk.js",
+    "index.html": "/Messange/index.html",
+    "static/js/2.6acdd685.chunk.js.LICENSE.txt": "/Messange/static/js/2.6acdd685.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19ff9975.js",
+    "static/js/2.6acdd685.chunk.js",
+    "static/css/main.9c327c38.chunk.css",
+    "static/js/main.781519ed.chunk.js"
+  ]
+}
