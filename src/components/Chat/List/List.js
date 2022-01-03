@@ -1,11 +1,15 @@
-import axios from "axios";
-import React, { Component } from "react";
-import ListItems from "./ListItems";
+// import axios from "axios";
+// import React, { Component } from "react";
+// import ListItems from "./ListItems";
 
 const List = ({ data }) => {
   const el = data.map((datas) => {
-    console.log(datas.id);
-    return <li key={datas.id}>{datas.messange}</li>;
+    return (
+      <li key={datas.id}>
+        <p>{datas.usernames}</p>
+        {datas.messange}
+      </li>
+    );
   });
   return <ul>{el}</ul>;
 };

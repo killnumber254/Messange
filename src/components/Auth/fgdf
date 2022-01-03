@@ -18,3 +18,11 @@
             Войти
           </button>
         </form>
+
+
+         value={this.state.username}
+              onChange={this.handleChangeUser}
+
+
+               value={this.state.password}
+              onChange={this.handleChangePassword}

@@ -29,7 +29,7 @@ class App extends Component {
         <div className="auth_regist">
           <Navigation />
           <Route path="/en">
-            <Auth setUser={this.setUser} />
+            <Auth setUser={this.setUser} user={this.state.user} />
           </Route>
           <Route path="/regist">
             <Regist setUser={this.setUser} />
@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         {authRegist}
-        <Route path="/chat">
+        <Route path="/log">
           <Chat setUser={this.state.user} />
         </Route>
       </BrowserRouter>

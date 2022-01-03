@@ -34,17 +34,15 @@ class Chat extends Component {
   async postDataBase() {
     const { setUser } = this.props;
     const messanger = {
-      usernames: setUser,
       messager: this.state.message,
+      usernames: setUser,
     };
-    await axios
-      .post("http://127.0.0.1:5000/chat", messanger)
-      .then((res) => console.log(res));
+    console.log(setUser);
+    await axios.post("http://127.0.0.1:5000/chat", messanger);
   }
 
   dataBase() {
     axios.get("http://127.0.0.1:5000/chat:message").then((res) => {
-      console.log(res);
       this.setState({ datas: res.data });
     });
   }
@@ -52,8 +50,10 @@ class Chat extends Component {
   componentDidMount() {
     axios.get("http://127.0.0.1:5000/chat:mess").then((res) => {
       this.setState({ datas: res.data });
+      axios.get("http://127.0.0.1:5000/log").then((res) => console.log(res));
     });
   }
+
   render() {
     return (
       <>

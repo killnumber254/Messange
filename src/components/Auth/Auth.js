@@ -30,24 +30,30 @@ class Auth extends Component {
       username: this.state.username,
       password: this.state.password,
     };
+    console.log(user);
     axios
       .post("http://127.0.0.1:5000/login", user)
       .then((res) => res)
       .then((body) => {
-        console.log(body);
-        if (body) {
-          const { setUser } = this.props;
+        console.log(body.data.username);
+        // const tokens = {
+        //   token: body.data.token,
+        // };
+        const { setUser } = this.props;
+        if (body.data.username) {
           setUser(body.data.username);
-          return this.props.history.push("/chat");
+          const { history } = this.props;
+          return history.push("/log");
         }
       });
   }
+
   render() {
     return (
       <>
         <form>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
@@ -56,14 +62,10 @@ class Auth extends Component {
               type="email"
               className="form-control"
               id="exampleInputEmail1"
-              aria-describedby="emailHelp"
             />
-            <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input
