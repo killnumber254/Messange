@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Messange/static/css/main.77c6156e.chunk.css",
-    "main.js": "/Messange/static/js/main.f85d0416.chunk.js",
+    "main.css": "/Messange/static/css/main.2a49f509.chunk.css",
+    "main.js": "/Messange/static/js/main.e0b449a1.chunk.js",
     "runtime-main.js": "/Messange/static/js/runtime-main.d37ae1e6.js",
     "static/css/2.55f51080.chunk.css": "/Messange/static/css/2.55f51080.chunk.css",
-    "static/js/2.68b094c7.chunk.js": "/Messange/static/js/2.68b094c7.chunk.js",
+    "static/js/2.aa1a3314.chunk.js": "/Messange/static/js/2.aa1a3314.chunk.js",
     "static/js/3.9808b70d.chunk.js": "/Messange/static/js/3.9808b70d.chunk.js",
     "index.html": "/Messange/index.html",
-    "static/js/2.68b094c7.chunk.js.LICENSE.txt": "/Messange/static/js/2.68b094c7.chunk.js.LICENSE.txt"
+    "static/js/2.aa1a3314.chunk.js.LICENSE.txt": "/Messange/static/js/2.aa1a3314.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d37ae1e6.js",
     "static/css/2.55f51080.chunk.css",
-    "static/js/2.68b094c7.chunk.js",
-    "static/css/main.77c6156e.chunk.css",
-    "static/js/main.f85d0416.chunk.js"
+    "static/js/2.aa1a3314.chunk.js",
+    "static/css/main.2a49f509.chunk.css",
+    "static/js/main.e0b449a1.chunk.js"
   ]
 }
