@@ -30,7 +30,7 @@ class Regist extends Component {
       password: this.state.password,
     };
     axios
-      .post("http://127.0.0.1:5000/regist", user)
+      .post("http://127.0.0.1:3001/regist", user)
       .then((res) => res)
       .then((body) => {
         console.log(body);
@@ -38,7 +38,7 @@ class Regist extends Component {
         if (body.data.token) {
           setUser(body.data.token);
           const { history } = this.props;
-          return history.push("/log");
+          return history.push("/logs");
         }
       });
   }

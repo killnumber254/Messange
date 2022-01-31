@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
+// import axios from "axios";
 import Auth from "../Auth";
 import Navigation from "../Navigation";
 import Regist from "../Regist";
 import { BrowserRouter, Route } from "react-router-dom";
-import Chat from "../Chat/Chat";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Messanger from "../Messanger";
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends Component {
     this.state = {
       user: null,
       data: null,
+      isAuthStatus: false,
     };
   }
 
@@ -22,6 +24,10 @@ class App extends Component {
     this.setState({ user: e });
   };
 
+  // componentDidMount() {
+  //   axios.defaults.withCredentials = true;
+  // }
+
   render() {
     let authRegist = null;
     if (!this.state.user) {
@@ -29,10 +35,14 @@ class App extends Component {
         <div className="auth_regist">
           <Navigation />
           <Route path="/en">
-            <Auth setUser={this.setUser} user={this.state.user} />
+            <Auth
+              isAuthStatus={this.isAuthStatus}
+              setUser={this.setUser}
+              user={this.state.user}
+            />
           </Route>
           <Route path="/regist">
-            <Regist setUser={this.setUser} />
+            <Regist setUser={this.setUser} isAuthStatus={this.isAuthStatus} />
           </Route>
         </div>
       );
@@ -40,8 +50,12 @@ class App extends Component {
     return (
       <BrowserRouter>
         {authRegist}
-        <Route path="/log">
-          <Chat setUser={this.state.user} />
+        <Route path="/logs">
+          <Messanger
+            isAuthStatus={this.isAuthStatus}
+            setUser={this.setUser}
+            user={this.state.user}
+          />
         </Route>
       </BrowserRouter>
     );

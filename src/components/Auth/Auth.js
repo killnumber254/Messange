@@ -26,24 +26,25 @@ class Auth extends Component {
 
   handleClick(e) {
     e.preventDefault();
+    axios.defaults.withCredentials = true;
     const user = {
       username: this.state.username,
       password: this.state.password,
     };
-    console.log(user);
+
     axios
-      .post("http://127.0.0.1:5000/login", user)
-      .then((res) => res)
-      .then((body) => {
-        console.log(body.data.username);
+      .post("http://127.0.0.1:3001/login", user, { withCredentials: true })
+      .then((res) => {
+        console.log(res.data);
         // const tokens = {
         //   token: body.data.token,
         // };
         const { setUser } = this.props;
-        if (body.data.username) {
-          setUser(body.data.username);
+
+        if (res.data.user.username) {
+          setUser(res.data.user.username);
           const { history } = this.props;
-          return history.push("/log");
+          history.push("/logs");
         }
       });
   }

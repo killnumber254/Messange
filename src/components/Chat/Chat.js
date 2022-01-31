@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./Chat.css";
+import styles from "./Chat.module.css";
 import Message from "./Message";
 import List from "./List";
 
@@ -12,10 +12,13 @@ class Chat extends Component {
       message: "",
       chat: "",
       datas: [],
+      width: 0,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
+  ref = React.createRef();
 
   handleChange(e) {
     e.preventDefault();
@@ -28,35 +31,52 @@ class Chat extends Component {
     this.postDataBase();
     setTimeout(() => {
       this.dataBase();
-    }, 200);
+    }, 100);
   }
 
   async postDataBase() {
-    const { setUser } = this.props;
+    const { user } = this.props;
     const messanger = {
       messager: this.state.message,
-      usernames: setUser,
+      usernames: user,
     };
-    console.log(setUser);
-    await axios.post("http://127.0.0.1:5000/chat", messanger);
+
+    await axios.post("http://127.0.0.1:3001/chat", messanger);
   }
 
   dataBase() {
-    axios.get("http://127.0.0.1:5000/chat:message").then((res) => {
-      this.setState({ datas: res.data });
-    });
+    axios
+      .get("http://127.0.0.1:3001/chat:message", { withCredentials: true })
+      .then((res) => {
+        this.setState({ datas: res.data });
+        console.log(res.data);
+      });
+  }
+
+  scrollBottom() {
+    this.ref.current.scrollIntoView({ block: "end", behavior: "smooth" });
   }
 
   componentDidMount() {
-    axios.get("http://127.0.0.1:5000/chat:mess").then((res) => {
-      this.setState({ datas: res.data });
-      axios.get("http://127.0.0.1:5000/log").then((res) => console.log(res));
-    });
+    this.scrollBottom();
+    axios
+      .get("http://127.0.0.1:3001/chat:mess", { withCredentials: true })
+      .then((res, req) => {
+        this.setState({ datas: res.data });
+      });
+    // axios
+    //   .get("http://127.0.0.1:3001/log", { withCredentials: true })
+    //   .then((res) => {
+    //     const { setUser } = this.props;
+    //     if (res.status === 200) {
+    //       setUser(res.data.user);
+    //     }
+    //   });
   }
 
   render() {
     return (
-      <>
+      <div className={styles.block} ref={this.ref}>
         <List data={this.state.datas} />
         {/* <span>{console.log(this.state.data)}</span> */}
         <Message
@@ -64,7 +84,7 @@ class Chat extends Component {
           handleChange={this.handleChange}
           handleClick={this.handleClick}
         />
-      </>
+      </div>
     );
   }
 }

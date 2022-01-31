@@ -1,0 +1,27 @@
+.block {
+  float: left;
+  background: silver;
+  padding: 1em 1.5em;
+  border-radius: 1em;
+  position: relative;
+  line-height: 1.5em;
+}
+
+.block::after,
+.block::before {
+  content: "";
+  position: absolute;
+  left: 100%;
+  bottom: 0.5em;
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.block::before {
+  border-top: none;
+  height: 0.9em;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  background: silver;
+  border-color: silver;
+  margin-left: -0.9em;
+}
