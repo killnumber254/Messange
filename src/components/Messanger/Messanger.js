@@ -9,6 +9,7 @@ class Messanger extends Component {
     super(props);
     this.state = {
       users: null,
+      isLoading: true,
     };
   }
 
@@ -24,7 +25,8 @@ class Messanger extends Component {
   }
   componentDidMount() {
     axios.get("http://127.0.0.1:3001/users").then((res) => {
-      this.setState({ users: res.data });
+      console.log(res.data);
+      this.setState({ users: res.data, isLoading: false });
     });
     axios
       .get("http://127.0.0.1:3001/log", { withCredentials: true })
@@ -38,11 +40,18 @@ class Messanger extends Component {
   render() {
     return (
       <>
-        <Users users={this.state.users} />
-        <button type="submit" onClick={this.handleClick.bind(this)}>
-          Выход
-        </button>
-        <Chat />
+        {this.state.isLoading ? (
+          "Загрузка"
+        ) : (
+          <>
+            {" "}
+            <Users users={this.state.users} />
+            <button type="submit" onClick={this.handleClick.bind(this)}>
+              Выход
+            </button>
+            <Chat />
+          </>
+        )}
       </>
     );
   }

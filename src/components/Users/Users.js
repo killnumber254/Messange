@@ -8,6 +8,7 @@ const Users = ({ users }) => {
       </li>
     );
   });
+
   return <ul>{el}</ul>;
 };
 

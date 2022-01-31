@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Messange/static/css/main.2a49f509.chunk.css",
-    "main.js": "/Messange/static/js/main.e0b449a1.chunk.js",
+    "main.js": "/Messange/static/js/main.204d7cdf.chunk.js",
     "runtime-main.js": "/Messange/static/js/runtime-main.d37ae1e6.js",
     "static/css/2.55f51080.chunk.css": "/Messange/static/css/2.55f51080.chunk.css",
     "static/js/2.aa1a3314.chunk.js": "/Messange/static/js/2.aa1a3314.chunk.js",
@@ -14,6 +14,6 @@
     "static/css/2.55f51080.chunk.css",
     "static/js/2.aa1a3314.chunk.js",
     "static/css/main.2a49f509.chunk.css",
-    "static/js/main.e0b449a1.chunk.js"
+    "static/js/main.204d7cdf.chunk.js"
   ]
 }

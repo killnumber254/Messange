@@ -1,6 +1,7 @@
-import { useLayoutEffect, useRef } from "react";
+// import { useLayoutEffect, useRef } from "react";
 
 const List = ({ data }) => {
+  console.log(data);
   const el = data.map((datas) => {
     return (
       <li key={datas.id}>
